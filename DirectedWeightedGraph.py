@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+## This class will be used to represent connections between users
+
 class DirectedWeightedGraph:
     def __init__(self):
         self.graph = defaultdict(dict)
