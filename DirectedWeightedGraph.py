@@ -6,6 +6,7 @@ class DirectedWeightedGraph:
     def __init__(self):
         self.graph = defaultdict(dict)
 
+    ## Weight will be a string with a value of 'follows', 'friends', 'coworker', 'blocked', or 'has read posts by'.
     def addEdge(self, u, v, weight):
         self.graph[u][v] = weight
     
