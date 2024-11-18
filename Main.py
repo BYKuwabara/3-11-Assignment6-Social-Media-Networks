@@ -2,6 +2,7 @@ def main():
     from Post import Post
     from User import User
     from DirectedWeightedGraph import DirectedWeightedGraph
+    from WordCloud import SocialMediaWordCloud
 
      # Create Post objects with sample data
     post1 = Post(
@@ -85,6 +86,12 @@ def main():
             print(f"    - {comment}")
         
         print()  # Blank line between users
+
+    # Create a SocialMediaWordCloud object
+    word_cloud_generator = SocialMediaWordCloud([user1, user2])
+    wordcloud = word_cloud_generator.generate_word_cloud(include_keywords=["Python"])
+    print("Displaying word cloud for posts containing 'Python':")
+    word_cloud_generator.display_word_cloud(wordcloud)
 
 if __name__ == "__main__":
     main()
