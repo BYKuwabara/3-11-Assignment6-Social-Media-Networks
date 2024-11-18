@@ -13,7 +13,7 @@ class DirectedWeightedGraph:
     def getEdges(self):
         edges = []
         for u in self.graph:
-            for v in self.graph:
+            for v in self.graph[u]:
                 edges.append((u,v,self.graph[u][v]))
         return edges
     # O(u * v) or O(n^2)
