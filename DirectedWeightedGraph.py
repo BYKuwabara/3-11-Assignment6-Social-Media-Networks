@@ -16,3 +16,4 @@ class DirectedWeightedGraph:
             for v in self.graph:
                 edges.append((u,v,self.graph[u][v]))
         return edges
+    ## O(u * v) or O(n^2)
