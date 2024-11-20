@@ -48,19 +48,19 @@ def main():
     # Create User objects with their respective posts, comments, and connections
     user1 = User(
         "Alice", user1_connections, [post1, post2], 
-        ["Nice post!", "Python is awesome!"], [post3]  
+        ["Nice post!", "Python is awesome!"], [post3], {}  
     )
     user2 = User(
         "Bob", user2_connections, [post3], 
-        ["Great post!"], [post1, post2]  
+        ["Great post!"], [post1, post2], {}  
     )
     user3 = User(
         "Charlie", user3_connections, [], 
-        ["I love this!"], [post1]  
+        ["I love this!"], [post1], {}  
     )
     user4 = User(
         "David", user4_connections, [], 
-        ["Nice book recommendation!"], []  
+        ["Nice book recommendation!"], [], {}  
     )
 
     # Display user information
@@ -124,9 +124,9 @@ def main():
     )
 
     # Example users
-    user1 = User("user1", {"age": 25, "gender": "M", "region": "NA"}, [], [post1], [], [])
-    user2 = User("user2", {"age": 30, "gender": "F", "region": "EU"}, [], [post2], [], [])
-    user3 = User("user3", {"age": 22, "gender": "M", "region": "NA"}, [], [post3], [], [])
+    user1 = User("user1", {"age": 25, "gender": "M", "region": "NA"}, [], [post1], [], [], {})
+    user2 = User("user2", {"age": 30, "gender": "F", "region": "EU"}, [], [post2], [], [], {})
+    user3 = User("user3", {"age": 22, "gender": "M", "region": "NA"}, [], [post3], [], [], {})
 
     analyzer = TrendingPostAnalyzer([user1, user2, user3])
 
