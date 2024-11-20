@@ -3,6 +3,7 @@ def main():
     from User import User
     from DirectedWeightedGraph import DirectedWeightedGraph
     from WordCloud import SocialMediaWordCloud
+    from TrendingPosts import TrendingPostAnalyzer
 
      # Create Post objects with sample data
     post1 = Post(
@@ -92,6 +93,30 @@ def main():
     wordcloud = word_cloud_generator.generate_word_cloud(include_keywords=["Python"])
     print("Displaying word cloud for posts containing 'Python':")
     word_cloud_generator.display_word_cloud(wordcloud)
+
+     # Create a TrendingPostAnalyzer object and display trending posts
+    # Example posts
+    post1 = Post(
+        "Post about AI",
+        {"Interesting comment": "user1"},
+        ["08/13/24:1345", "08/13/24:1400", "08/13/24:1415"],
+        "08/13/24:1340",
+    )
+    post2 = Post(
+        "Post about ML",
+        {"Another comment": "user2"},
+        ["08/13/24:1350", "08/13/24:1410"],
+        "08/13/24:1330",
+    )
+
+    # Example users
+    user1 = User("user1", [], [post1], [], [])
+    user2 = User("user2", [], [post2], [], [])
+
+    analyzer = TrendingPostAnalyzer([user1, user2])
+    trending = analyzer.trending_posts("08/13/24:1330", "08/13/24:1430")
+    for post, rate in trending:
+        print(f"Post: {post.content}, Trend Rate: {rate}")
 
 if __name__ == "__main__":
     main()
