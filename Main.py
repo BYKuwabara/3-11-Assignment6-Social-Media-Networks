@@ -91,7 +91,7 @@ def main():
 
     # Test Social Media Diagram
     SocialMediaDiagram([user1,user2,user3,user4], importance_criteria='blend')
-    '''
+    
     # Create a SocialMediaWordCloud object
     word_cloud_generator = SocialMediaWordCloud([user1, user2])
     wordcloud = word_cloud_generator.generate_word_cloud(include_keywords=["Python"])
@@ -142,7 +142,7 @@ def main():
     # Print trending posts
     for post, rate in trending:
         print(f"Post: {post.content}, Trend Rate: {rate}")
-    '''
+    
 
 if __name__ == "__main__":
     main()
