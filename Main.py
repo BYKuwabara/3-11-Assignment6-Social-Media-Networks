@@ -90,14 +90,14 @@ def main():
         print()  # Blank line between users
 
     # Test Social Media Diagram
-    SocialMediaDiagram([user1,user2,user3,user4])
-'''
+    SocialMediaDiagram([user1,user2,user3,user4], importance_criteria='blend')
+    '''
     # Create a SocialMediaWordCloud object
     word_cloud_generator = SocialMediaWordCloud([user1, user2])
     wordcloud = word_cloud_generator.generate_word_cloud(include_keywords=["Python"])
     print("Displaying word cloud for posts containing 'Python':")
     word_cloud_generator.display_word_cloud(wordcloud) 
-'''
+
     
 
 
@@ -125,6 +125,7 @@ def main():
     trending = analyzer.trending_posts("08/13/24:1330", "08/13/24:1430")
     for post, rate in trending:
         print(f"Post: {post.content}, Trend Rate: {rate}")
+    '''
 
 if __name__ == "__main__":
     main()
