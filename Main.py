@@ -103,26 +103,43 @@ def main():
 
 
      # Create a TrendingPostAnalyzer object and display trending posts
-    # Example posts
+     # Example posts
     post1 = Post(
-        "Post about AI",
+        "AI research is amazing",
         {"Interesting comment": "user1"},
         ["08/13/24:1345", "08/13/24:1400", "08/13/24:1415"],
         "08/13/24:1340",
     )
     post2 = Post(
-        "Post about ML",
+        "ML and AI are the future!",
         {"Another comment": "user2"},
         ["08/13/24:1350", "08/13/24:1410"],
         "08/13/24:1330",
     )
+    post3 = Post(
+        "Controversial topic with profanity!",
+        {"Wow!": "user3"},
+        ["08/13/24:1405", "08/13/24:1420"],
+        "08/13/24:1400",
+    )
 
     # Example users
-    user1 = User("user1", [], [post1], [], [])
-    user2 = User("user2", [], [post2], [], [])
+    user1 = User("user1", {"age": 25, "gender": "M", "region": "NA"}, [], [post1], [], [])
+    user2 = User("user2", {"age": 30, "gender": "F", "region": "EU"}, [], [post2], [], [])
+    user3 = User("user3", {"age": 22, "gender": "M", "region": "NA"}, [], [post3], [], [])
 
-    analyzer = TrendingPostAnalyzer([user1, user2])
-    trending = analyzer.trending_posts("08/13/24:1330", "08/13/24:1430")
+    analyzer = TrendingPostAnalyzer([user1, user2, user3])
+
+    # Trending posts report
+    trending = analyzer.trending_posts(
+        "08/13/24:1330", 
+        "08/13/24:1430",
+        include_keywords=["AI", "ML"],  # Include posts containing these words
+        exclude_keywords=["profanity"],  # Exclude posts containing these words
+        user_filters={"region": "NA"}  # Include posts only by users from North America
+    )
+
+    # Print trending posts
     for post, rate in trending:
         print(f"Post: {post.content}, Trend Rate: {rate}")
     '''
