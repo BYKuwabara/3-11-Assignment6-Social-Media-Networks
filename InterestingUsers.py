@@ -1,7 +1,7 @@
-import networkx as nx
 from User import User
 from Post import Post
 from DirectedWeightedGraph import DirectedWeightedGraph
+import networkx as nx
 import matplotlib.pyplot as plt
 
 def create_social_media_graph(users):
