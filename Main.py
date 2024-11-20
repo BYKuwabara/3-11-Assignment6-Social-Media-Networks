@@ -142,6 +142,78 @@ def main():
     # Print trending posts
     for post, rate in trending:
         print(f"Post: {post.content}, Trend Rate: {rate}")
+
+
+    # Create Interesting Users Diagram
+    # Example Data
+    post_1 = [
+        Post(
+            Content = "Introduction to Python Programming",
+            Comments = {"Great post!": "Bob", "Very helpful": "Charlie"},
+            Views = ["Bob", "Charlie"],
+            CreationDateAndTime = "11/15/24:1030"
+        )
+    ]
+    
+    post_2 = [
+        Post(
+            Content = "Understanding Graph Theory",
+            Comments = {"Informative read": "John"},
+            Views = ["John", "Charlie"],
+            CreationDateAndTime = "11/16/24:1450"
+        )
+    ]
+    
+    post_3 = [
+        Post(
+            Content = "Beginner's Guide to Machine Learning",
+            Comments = {"Exciting topic!": "John", "Nice!": "Bob"},
+            Views = ["John", "Bob"],
+            CreationDateAndTime = "11/17/24:0900"
+        )
+    ]
+    
+    users = [
+        User(
+            UserName = 'John',
+            Connections = DirectedWeightedGraph(),
+            Posts = post_1,
+            PostedComments = [], 
+            ViewedPosts = [], 
+            Attributes = {'followers': 120, 'age': 30}
+        ),
+        User(
+            UserName = 'Bob',
+            Connections = DirectedWeightedGraph(),
+            Posts = post_2,
+            PostedComments = [], 
+            ViewedPosts = [], 
+            Attributes = {'followers': 80, 'age': 25}
+        ),
+        User(
+            UserName = 'Charlie',
+            Connections = DirectedWeightedGraph(),
+            Posts = post_3,
+            PostedComments = [], 
+            ViewedPosts = [], 
+            Attributes = {'followers': 95, 'age': 40}
+        )
+    ]
+    
+    # Create the social media graph
+    G = create_social_media_graph(users)
+    
+    # Define criteria for interesting users
+    criteria = {
+        'followers': lambda x: x > 90,
+        'age': lambda x: x < 35
+    }
+    
+    # Highlight interesting users
+    interesting_users = highlight_interesting_users(G, criteria)
+    
+    # Draw the graph with highlights
+    draw_graph(G, interesting_users)
     
 
 if __name__ == "__main__":
